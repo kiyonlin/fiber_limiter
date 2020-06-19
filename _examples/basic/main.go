@@ -10,8 +10,8 @@ func main() {
 
 	// 10 requests per second, support 10 burst
 	cfg := limiter.Config{
-		Limit: 1,
-		Burst: 2,
+		Limit: 10,
+		Burst: 10,
 	}
 
 	app.Use(limiter.New(cfg))
