@@ -38,7 +38,7 @@ type Config struct {
 	Key func(*fiber.Ctx) string
 	// Handler is called when a request hits the limit
 	// Default: func(c *fiber.Ctx) {
-	//   c.Status(cfg.StatusCode).SendString(cfg.Message)
+	//   c.Status(cfg.StatusCode).Format(cfg.Message)
 	// }
 	Handler func(*fiber.Ctx)
 }

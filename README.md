@@ -7,6 +7,17 @@ go get -u github.com/gofiber/fiber
 go get -u github.com/kiyonlin/fiber-limiter
 ```
 
+## Config
+| Property | Type | Description | Default |
+| :--- | :--- | :--- | :--- |
+| Filter | `func(*fiber.Ctx) bool` | Defines a function to skip middleware. | `nil` |
+| Limit | `int` | Defines the maximum frequency of requests and is represented as integer of requests per second. | `10` |
+| Burst | `int` | Maximum burst size. | `10` |
+| Message | `string` | Response Message. | `"Too many requests, please try again later."` |
+| StatusCode | `int` | Status Code. | `429 Too Many Requests` |
+| Key | `func(*fiber.Ctx) string` | Allows to use a custom handler to create custom keys. | `func(c *fiber.Ctx) string { return c.IP() }` |
+| Handler | `func(*fiber.Ctx)` | Is called when a request hits the limit. | `func(c *fiber.Ctx) { c.Status(cfg.StatusCode).Format(cfg.Message) }` |
+
 ## Example
 ```go
 package main
