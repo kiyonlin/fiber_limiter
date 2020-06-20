@@ -122,7 +122,7 @@ c.Next()
 其中`X-RateLimit-Reset`和`Retry-After`的值都转成秒为单位的整数，这是一个相对当前调用时间的值，客户端可以根据这个值作出相应的操作。
 
 ## Set
-最后，我们提供`Set`方法，用户可以根据自己的需求提前设置不同的限制器。比如针对不同的`api`用户，设置不同的访问频率以及突发值。
+最后，我们提供`func Set(key string, lim *rate.Limiter)`方法，用户可以根据自己的需求提前设置不同的限制器。比如针对不同的`api`用户，设置不同的访问频率以及突发值。
 
 # 总结
 本文主要针对`api`接口的频率限制需求，在[golang.org/x/time/rate](https://github.com/golang/time)的基础上为`Reservation`对象增加方法，完善响应头中的信息，并应用到[fiber](https://gofiber.io)框架中。
