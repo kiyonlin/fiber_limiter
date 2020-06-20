@@ -87,10 +87,10 @@ import (
 )
 
 func main() {
-    app := fiber.New()
+	app := fiber.New()
 
 	// 10 requests per second, support 10 burst
-    limiter.Set("127.0.0.1", rate.NewLimiter(10, 100))
+	limiter.Set("127.0.0.1", rate.NewLimiter(10, 100))
 
 	app.Use(limiter.New())
 
